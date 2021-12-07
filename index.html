@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Kevin Nguyen's Portfolio</title>
+
+    <style>
+    body {
+        background-color: black;
+        color: white;
+        text-shadow: 1px 1px 2px purple, 1px 1px 4px blue, 1px 1px 6px red, 1px 1px 8px black, 1px 1px 8px black;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+
+    div.border1 {
+        border-left: 150px solid black;
+        z-index: 0;
+    }
+
+    div.sidebar {
+        height: 50vh;
+        position: absolute;
+        z-index: 1;
+    }
+
+    div.contact{
+        padding-top: 11vh;
+        position: absolute;
+        visibility: visible;
+        z-index: 1;
+        bottom: 0vh;
+    }
+
+    div.aboutMeText{
+        position: absolute;
+        font-size: large;
+        padding-left: 35%;
+        margin-top: 2.5vh;
+        margin-right: 25vw;
+        z-index: 1;
+        transition-duration: 2.0s;
+        visibility: hidden;
+        transform: scale(0);
+    }
+
+    div.experienceText{
+        position: absolute;
+        font-size: large;
+        padding-left: 35%;
+        margin-top: 2.5vh;
+        margin-right: 25vw;
+        z-index: 1;
+        transition-duration: 2.0s;
+        visibility: hidden;
+        transform: scale(0);
+    }
+
+    div.skillsText{
+        position: absolute;
+        font-size: large;
+        padding-left: 35%;
+        margin-top: 2.5vh;
+        margin-right: 25vw;
+        z-index: 1;
+        transition-duration: 2.0s;
+        visibility: hidden;
+        transform: scale(0);
+    }
+
+    #space {
+        border-radius: 15%;
+        width: 82vw;
+        height: 75vh;
+        transition-duration: 2.0s;
+    }
+
+    #gameMP4{
+        position: absolute;
+        width: 35vw;
+        height: 60vh;
+        left: 35vw;
+        top: 45vh;
+        z-index: 1;
+        visibility: hidden;
+        transition-duration: 2.0s;
+        transform: scale(0);
+    }
+
+
+    @media only screen and (max-width: 920px)
+    {    
+        div.aboutMeText{
+            position: absolute;
+            font-size: medium;
+            padding-left: 35%;
+            margin-top: 2.5vh;
+            margin-right: 0.1vw;
+            z-index: 1;
+            transition-duration: 2.0s;
+            transform: scale(0);
+        }
+    }
+
+    @media only screen and (max-width: 920px)
+    {    
+        div.experienceText{
+            position: absolute;
+            font-size: medium;
+            padding-left: 35%;
+            margin-top: 2.5vh;
+            margin-right: 0.1vw;
+            z-index: 1;
+            transition-duration: 2.0s;
+            transform: scale(0);
+        }
+    }
+
+    @media only screen and (max-width: 920px)
+    {    
+        div.skillsText{
+            position: absolute;
+            font-size: medium;
+            padding-left: 35%;
+            margin-top: 2.5vh;
+            margin-right: 0.1vw;
+            z-index: 1;
+            transition-duration: 2.0s;
+            transform: scale(0);
+        }
+    }
+
+    @media only screen and (max-width: 920px)
+    {
+        #gameMP4{
+            position: absolute;
+            left: auto;
+            margin-top: 15vh;
+            width: 50vw;
+            height: 50vh;
+            z-index: 1;
+        }
+    }
+
+    </style>
+
+    <script>
+        /*Unzooms when another tab is clicked*/
+        function unZoom(){
+            var contact = document.getElementsByClassName("contact");
+            var BG = document.getElementById("space");
+            BG.style.transform = "scale(1)";
+            for (let i = 0; i < contact.length; i++)
+            contact[i].style.visibility = "visible";
+            aboutMe(2);
+            skills(2);
+            experience(2);
+        }
+
+        /*Hides Contact Me info and makes About Me Text visible and zoomed*/
+        function aboutMe(zValue){
+            var BG = document.getElementById("space");
+            var contact = document.getElementsByClassName("contact");
+            var aboutMe = document.getElementsByClassName("aboutMeText");
+            var aboutVideo = document.getElementById("gameMP4");
+            
+            /*About me tag becomes visible, and contact/copyright becomes invis*/
+            if(zValue == 1){
+                for (let i = 0; i < contact.length; i++) contact[i].style.visibility = "hidden";
+                for (let i = 0; i < aboutMe.length; i++) {
+                    aboutMe[i].style.visibility = "visible";
+                    aboutMe[i].style.transform = "scale(1)";
+                }
+                BG.style.transformOrigin = "center 55vh";
+                BG.style.transform = "scale(6)";
+                aboutVideo.style.visibility = "visible";
+                aboutVideo.style.transform = "scale(1)";
+                aboutVideo.play();
+                experience(2);
+                skills(2);
+            }
+
+            /* Hides about me and the unity video */
+            if(zValue == 2){
+                for (let i = 0; i < aboutMe.length; i++) {
+                    aboutMe[i].style.visibility = "hidden";
+                    aboutMe[i].style.transform = "scale(0)";
+                }
+                aboutVideo.style.visibility = "hidden";
+                aboutVideo.style.transform = "scale(0)";
+                aboutVideo.pause();
+                aboutVideo.currentTime = 0;
+            }
+        }
+
+        function experience(zValue) {
+            var BG = document.getElementById("space");
+            var contact = document.getElementsByClassName("contact");
+            var expText = document.getElementsByClassName("experienceText")
+
+            if (zValue == 1) {
+                for (let i = 0; i < expText.length; i++) expText[i].style.visibility = "hidden";
+                for (let i = 0; i < expText.length; i++) {
+                    expText[i].style.visibility = "visible";
+                    expText[i].style.transform = "scale(1)";
+                }
+                BG.style.transformOrigin = "center 30vh";
+                BG.style.transform = "scale(5)";
+                aboutMe(2);
+                skills(2);
+            }
+            if (zValue == 2){
+                for (let i = 0; i < aboutMe.length; i++) {
+                    expText[i].style.visibility = "hidden";
+                    expText[i].style.transform = "scale(0)";
+                }
+            }
+        }
+
+        function skills(zValue) {
+            var BG = document.getElementById("space");
+            var contact = document.getElementsByClassName("contact");
+            var skillText = document.getElementsByClassName("skillsText")
+
+            if (zValue == 1) {
+                for (let i = 0; i < contact.length; i++) contact[i].style.visibility = "hidden";
+                for (let i = 0; i < skillText.length; i++) {
+                    skillText[i].style.visibility = "visible";
+                    skillText[i].style.transform = "scale(1)";
+                }
+                BG.style.transformOrigin = "60vw center";
+                BG.style.transform = "scale(5)";
+                aboutMe(2)
+                experience(2);
+            }
+            if (zValue == 2){
+                for (let i = 0; i < aboutMe.length; i++) {
+                    skillText[i].style.visibility = "hidden";
+                    skillText[i].style.transform = "scale(0)";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="aboutMeText">
+        <p>
+                Hello, welcome to my about me page. I'm passionate in software development which includes
+                Java, JavaScript, HTML, CSS, Python. Network vendor familiarity includes Cisco/Juniper. I'm currently working full time as a Senior Network Analyst at
+            NTT LTD. As my role deals mainly with routers and switches. This includes configuring devices,
+            working on Linux/Unix servers,
+            performing software and hardware upgrades, hardware replacements,
+            using dijkstra's algorithm for traffic engineering, creating and debugging python scripts.
+            <br>
+            <br>
+                I play games and also create games on Unity Engine (C#) as a
+            hobby. The development is a slow process due to the amount of hours
+            of work/study time that takes place.
+            <br>
+            <br>
+        </p>
+    </div>
+
+    <div class="experienceText">
+        <ul>
+            <li>
+                Full acesss to over 200 routers globally (Asia/Europe/United States/Brazil/Australia) <br> <br>
+            </li>
+            <li>
+                Traffic engineer core backbone devices using ISIS or MPLS LSP when links are congested, and dropping packets. <br> <br>
+            </li>
+            <li>
+                Create python scripts to automate workflow, which include using Selenium to webscrape data, querying SQL tables, Netmiko to automate configuration and pulling data. <br> <br>
+            </li>
+            <li>
+                Debug faulty python scripts when new versions are commited via Git. <br> <br>
+            </li>
+            <li>
+                Create technical and procedural documentation is needed. <br> <br>
+            </li>
+            <li>
+                Provide escalation to team members when escalations are needed. <br> <br>
+            </li>
+            <li>
+                Join conference meetings with vendors and customers to troubleshoot software or hardware bugs and issues. <br> <br>
+            </li>
+        </ul>
+    </div>
+
+    <div class="skillsText">
+        <ul>
+            <h3>This site was made with just HTML/CSS/JS with no templates!</h1> <br><br>
+            <li>
+                Programming Languages: Java, Python, HTML5, CSS, JavaScript <br><br>
+            </li>
+            <li>
+                IDE: Visual Studio Code, Eclipse, Linux/Unix VIM <br><br>
+            </li>
+            <li>
+                Relational Database Management System: MySQL <br><br>
+            </li>
+            <li>
+                Dynamic Routing Protocols: BGP, ISIS, MPLS, EIGRP, RIP, OSPF <br><br>
+            </li>
+            <li>
+                Networking Vendors: Cisco, Juniper, Ciena, Fujitsu <br><br>
+            </li>
+            <li>
+                Traffic Engineering: LSP/ISIS/OSPF/EIGRP/BGP <br><br>
+            </li>
+            <li>
+                Operating System: Linux/Windows/MAC <br><br>
+            </li>
+            <li>
+                Technical Skills: TCP/IP, DNS, HTTP, DHCP, LAN/WAN <br><br>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <video id="gameMP4" playsinline muted
+            src="http://kevinnguyenportfolio.com/wp-content/uploads/2021/12/Purge.mp4">
+        </video>
+    </div>
+    <div class="sidebar">
+        <h2>Welcome!</h2>
+        <nav style="font-size:large">
+            <a href="#" onclick="unZoom()">
+                Home
+            </a>
+        </nav>
+        <nav style="font-size:large" onclick="aboutMe(1)" style="text-decoration: none;">
+            <a href="#">About Me</a>
+        </nav>
+        <nav style="font-size:large" onclick="experience(1)">
+            <a href="#">Experience</a>
+        </nav>
+        <nav style="font-size:large" onclick="skills(1)">
+            <a href="#">Technical Skills</a>
+        </nav>
+        <nav style="font-size:large"><a href="https://github.com/KevinNguyen091995" target="_blank">GitHub</a></nav>
+    </div>
+
+        <div class="border1">
+            <img id="space" style="display: inline-block;"src="http://kevinnguyenportfolio.com/wp-content/uploads/2021/12/SpaceTrim.gif" alt="Image Not Loaded: Experience will vary.">
+        </div>
+    </div>
+
+        <div class="contact">
+            <h3>Contact Me</h3>
+            <h5>Email: KevinNguyen09161995@gmail.com</h5>
+            <h5><a href="https://drive.google.com/file/d/1-1CONbUORRgmWkZstjoO7oXZE8s4uLIx/view?usp=sharing" target="_blank">Click for my Resume</a></h5>
+            <p style="margin-left: 70vw;">Copyright &copf;2021 KevinNguyenPortfolio All Rights Reserved <br> Version 1.5</p>
+        </div>
+</body>
+</html>
