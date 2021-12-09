@@ -179,127 +179,6 @@
             }
         }
     </style>
-
-    <script>
-        /*Unzooms when another tab is clicked*/
-        function unZoom() {
-            var contact = document.getElementsByClassName("contact");
-            var BG = document.getElementById("space");
-            BG.style.transform = "scale(1)";
-            for (let i = 0; i < contact.length; i++)
-                contact[i].style.visibility = "visible";
-            aboutMe(2);
-            skills(2);
-            experience(2);
-            smash(2);
-        }
-
-        function smash(zValue){
-            var dog = document.getElementById("dog");
-            var music = document.getElementById("music");
-            if(zValue == 1){
-                dog.style.visibility = "visible";
-                music.play();
-            }
-            if(zValue == 2){
-                dog.style.visibility = "hidden";
-                music.pause();
-                music.currentTime = "0";
-            }
-        }
-
-        /*Hides Contact Me info and makes About Me Text visible and zoomed*/
-        function aboutMe(zValue) {
-            var BG = document.getElementById("space");
-            var contact = document.getElementsByClassName("contact");
-            var aboutMe = document.getElementsByClassName("aboutMeText");
-            var aboutVideo = document.getElementById("gameMP4");
-
-            /*About me tag becomes visible, and contact/copyright becomes invis*/
-            if (zValue == 1) {
-                for (let i = 0; i < contact.length; i++) contact[i].style.visibility = "hidden";
-                for (let i = 0; i < aboutMe.length; i++) {
-                    aboutMe[i].style.visibility = "visible";
-                    aboutMe[i].style.transform = "scale(1)";
-                }
-                BG.style.transformOrigin = "center 55vh";
-                BG.style.transform = "scale(6)";
-                aboutVideo.style.visibility = "visible";
-                aboutVideo.style.transform = "scale(1)";
-                aboutVideo.play();
-                experience(2);
-                skills(2);
-                smash(2);
-            }
-
-            /* Hides about me and the unity video */
-            if (zValue == 2) {
-                for (let i = 0; i < aboutMe.length; i++) {
-                    aboutMe[i].style.visibility = "hidden";
-                    aboutMe[i].style.transform = "scale(0)";
-                }
-                aboutVideo.style.visibility = "hidden";
-                aboutVideo.style.transform = "scale(0)";
-                aboutVideo.pause();
-                aboutVideo.currentTime = 0;
-            }
-        }
-
-        function experience(zValue) {
-            var BG = document.getElementById("space");
-            var contact = document.getElementsByClassName("contact");
-            var expText = document.getElementsByClassName("experienceText")
-
-            if (zValue == 1) {
-                for (let i = 0; i < contact.length; i++) contact[i].style.visibility = "hidden";
-                for (let i = 0; i < expText.length; i++) {
-                    expText[i].style.visibility = "visible";
-                    expText[i].style.transform = "scale(1)";
-                }
-                BG.style.transformOrigin = "center 30vh";
-                BG.style.transform = "scale(5)";
-                aboutMe(2);
-                skills(2);
-                smash(2);
-            }
-            if (zValue == 2) {
-                for (let i = 0; i < aboutMe.length; i++) {
-                    expText[i].style.visibility = "hidden";
-                    expText[i].style.transform = "scale(0)";
-                }
-            }
-        }
-
-        function skills(zValue) {
-            var BG = document.getElementById("space");
-            var contact = document.getElementsByClassName("contact");
-            var skillText = document.getElementsByClassName("skillsText")
-            var nyanCat = document.getElementById("nyan");
-
-            if (zValue == 1) {
-                for (let i = 0; i < contact.length; i++) contact[i].style.visibility = "hidden";
-                for (let i = 0; i < skillText.length; i++) {
-                    skillText[i].style.visibility = "visible";
-                    skillText[i].style.transform = "scale(1)";
-                }
-                BG.style.transformOrigin = "60vw center";
-                BG.style.transform = "scale(5)";
-                nyanCat.style.visibility = "visible";
-                nyanCat.style.animation = "moveImage 12.5s linear infinite";
-                aboutMe(2)
-                experience(2);
-                smash(2);
-            }
-            if (zValue == 2) {
-                for (let i = 0; i < aboutMe.length; i++) {
-                    skillText[i].style.visibility = "hidden";
-                    skillText[i].style.transform = "scale(0)";
-                }
-                nyanCat.style.visibility = "hidden";
-                nyanCat.style.animation = null;
-            }
-        }
-    </script>
 </head>
 
 <body>
@@ -424,8 +303,129 @@
         <h5>Email: KevinNguyen09161995@gmail.com</h5>
         <h5><a href="https://drive.google.com/file/d/1-1CONbUORRgmWkZstjoO7oXZE8s4uLIx/view?usp=sharing"
                 target="_blank">Click for my Resume</a></h5>
-        <p style="margin-left: 70vw;">Copyright &copf;2021 KevinNguyenPortfolio All Rights Reserved <br> Version 2.1</p>
+        <p style="margin-left: 70vw;">Copyright &copf;2021 KevinNguyenPortfolio All Rights Reserved <br> Version 2.15</p>
     </div>
 </body>
+
+    <script>
+        /*Unzooms when another tab is clicked*/
+        function unZoom() {
+            var contact = document.getElementsByClassName("contact");
+            var BG = document.getElementById("space");
+            BG.style.transform = "scale(1)";
+            for (let i = 0; i < contact.length; i++)
+                contact[i].style.visibility = "visible";
+            aboutMe(2);
+            skills(2);
+            experience(2);
+            smash(2);
+        }
+
+        function smash(zValue) {
+            var dog = document.getElementById("dog");
+            var music = document.getElementById("music");
+            if (zValue == 1) {
+                dog.style.visibility = "visible";
+                music.play();
+            }
+            if (zValue == 2) {
+                dog.style.visibility = "hidden";
+                music.pause();
+                music.currentTime = "0";
+            }
+        }
+
+        /*Hides Contact Me info and makes About Me Text visible and zoomed*/
+        function aboutMe(zValue) {
+            var BG = document.getElementById("space");
+            var contact = document.getElementsByClassName("contact");
+            var aboutMe = document.getElementsByClassName("aboutMeText");
+            var aboutVideo = document.getElementById("gameMP4");
+
+            /*About me tag becomes visible, and contact/copyright becomes invis*/
+            if (zValue == 1) {
+                for (let i = 0; i < contact.length; i++) contact[i].style.visibility = "hidden";
+                for (let i = 0; i < aboutMe.length; i++) {
+                    aboutMe[i].style.visibility = "visible";
+                    aboutMe[i].style.transform = "scale(1)";
+                }
+                BG.style.transformOrigin = "center 55vh";
+                BG.style.transform = "scale(6)";
+                aboutVideo.style.visibility = "visible";
+                aboutVideo.style.transform = "scale(1)";
+                aboutVideo.play();
+                experience(2);
+                skills(2);
+                smash(2);
+            }
+
+            /* Hides about me and the unity video */
+            if (zValue == 2) {
+                for (let i = 0; i < aboutMe.length; i++) {
+                    aboutMe[i].style.visibility = "hidden";
+                    aboutMe[i].style.transform = "scale(0)";
+                }
+                aboutVideo.style.visibility = "hidden";
+                aboutVideo.style.transform = "scale(0)";
+                aboutVideo.pause();
+                aboutVideo.currentTime = 0;
+            }
+        }
+
+        function experience(zValue) {
+            var BG = document.getElementById("space");
+            var contact = document.getElementsByClassName("contact");
+            var expText = document.getElementsByClassName("experienceText")
+
+            if (zValue == 1) {
+                for (let i = 0; i < contact.length; i++) contact[i].style.visibility = "hidden";
+                for (let i = 0; i < expText.length; i++) {
+                    expText[i].style.visibility = "visible";
+                    expText[i].style.transform = "scale(1)";
+                }
+                BG.style.transformOrigin = "center 30vh";
+                BG.style.transform = "scale(5)";
+                aboutMe(2);
+                skills(2);
+                smash(2);
+            }
+            if (zValue == 2) {
+                for (let i = 0; i < aboutMe.length; i++) {
+                    expText[i].style.visibility = "hidden";
+                    expText[i].style.transform = "scale(0)";
+                }
+            }
+        }
+
+        function skills(zValue) {
+            var BG = document.getElementById("space");
+            var contact = document.getElementsByClassName("contact");
+            var skillText = document.getElementsByClassName("skillsText")
+            var nyanCat = document.getElementById("nyan");
+
+            if (zValue == 1) {
+                for (let i = 0; i < contact.length; i++) contact[i].style.visibility = "hidden";
+                for (let i = 0; i < skillText.length; i++) {
+                    skillText[i].style.visibility = "visible";
+                    skillText[i].style.transform = "scale(1)";
+                }
+                BG.style.transformOrigin = "60vw center";
+                BG.style.transform = "scale(5)";
+                nyanCat.style.visibility = "visible";
+                nyanCat.style.animation = "moveImage 12.5s linear infinite";
+                aboutMe(2)
+                experience(2);
+                smash(2);
+            }
+            if (zValue == 2) {
+                for (let i = 0; i < aboutMe.length; i++) {
+                    skillText[i].style.visibility = "hidden";
+                    skillText[i].style.transform = "scale(0)";
+                }
+                nyanCat.style.visibility = "hidden";
+                nyanCat.style.animation = null;
+            }
+        }
+    </script>
 
 </html>
